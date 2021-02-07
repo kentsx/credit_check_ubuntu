@@ -2,6 +2,11 @@
   "help": "使用指南：",
   "ver": [
     {
+      "num": "Ver 2.1",
+      "date": "07-02-2021",
+      "changelog": "1、改为支持Ubuntu版本（主要是考虑到wkhtmltopdf的问题）；2、增加大量证监会要求网站"
+    },
+    {
       "num": "Ver 1.1",
       "date": "06-02-2020",
       "changelog": "1、增加了信用中国网站的下载功能；2、一些小的改进；3、修改了option，并加入了header和footer，去除了TOC"
