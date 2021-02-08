@@ -62,13 +62,14 @@ def screen_print(readme):
 
 	txt = '现在开始查询'
 	print (txt.center(60, '='))
-	options = {'javascript-delay':'500','load-error-handling':'skip','margin-top':'5','default-header':'', 'header-font-size':'6', 'footer-left':'[date] [time]', 'footer-font-size':'6','no-outline':'', 'enable-smart-shrinking':'','disable-external-links':''}
+	options = {'javascript-delay':'500','load-error-handling':'skip','margin-top':'5','default-header':'', 'header-font-size':'6', 'footer-left':'[date] [time]', \
+	'footer-font-size':'6','no-outline':'', 'enable-smart-shrinking':'','disable-external-links':'', 'disable-javascript':''}
 	current_path = os.getcwd()
 	# 网址字典集
 	wz= dict()
 	for firm in firm_list:
 		mkdir(firm)
-		os.chdir(current_path+ '/' + firm)
+		os.chdir(current_path + '/'+ firm)
 		# 应急管理部
 		url_yingji = 'https://www.mem.gov.cn/was5/web/sousuo/index.html?sw='+firm+'&date1=&date2=&stype=0'
 		wz['应急管理部'] = url_yingji
@@ -82,16 +83,16 @@ def screen_print(readme):
 		url_waihui = 'http://www.safe.gov.cn/safe/search/index.html?q='+firm+'&siteid=safe&order=releasetime'
 		wz['外汇管理局'] = url_waihui
 		# 银保监会
-		url_yinbaojian = 'http://www.cbirc.gov.cn/cn/view/pages/index/jiansuo.html?keyWords='+firm
-		wz['银保监会']=url_yinbaojian
+		# url_yinbaojian = 'http://www.cbirc.gov.cn/cn/view/pages/index/jiansuo.html?keyWords='+firm
+		# wz['银保监会']=url_yinbaojian
 		# 央行网站---有问题
 
 		# 国家发改委
 		url_fagai = 'https://so.ndrc.gov.cn/s?siteCode=bm04000007&ssl=1&token=&qt='+firm
 		wz['国家发改委']=url_fagai
 		# 市场监督管理局
-		url_shichang = 'http://www.samr.gov.cn/search4/s?searchWord='+firm+'&x=0&y=0&column=%E5%85%A8%E9%83%A8&siteCode=bm30000012'
-		wz['市场监管局'] = url_shichang
+		# url_shichang = 'http://www.samr.gov.cn/search4/s?searchWord='+firm+'&x=0&y=0&column=%E5%85%A8%E9%83%A8&siteCode=bm30000012'
+		# wz['市场监管局'] = url_shichang
 		# 国家统计局
 		url_tongji = 'http://www.stats.gov.cn/was5/web/search?channelid=288041&andsen='+ firm
 		wz['国家统计局']=url_tongji
@@ -113,8 +114,8 @@ def screen_print(readme):
 		wz['住建部'] = url_zhujian
 		#url_guotu = 'http://s.lrn.cn/search/search.do?webid=6&pg=20&tpl=103&channelid=&searchword=&q='+firm+'&filter=001&x=6&y=21'
 		# 海关总署
-		url_haiguan = 'http://www.customs.gov.cn/?ess%24ctr151088%24ListC_Info%24ctl00%24KEYWORDS='+ firm
-		wz['海关总署'] = url_haiguan
+		# url_haiguan = 'http://www.customs.gov.cn/?ess%24ctr151088%24ListC_Info%24ctl00%24KEYWORDS='+ firm
+		# wz['海关总署'] = url_haiguan
 		# 自然资源部
 		url_ziyuan = 'http://s.lrn.cn/jsearchfront/search.do?websiteid=110000000000000&pg=1&p=1&searchid=1&tpl=13&cateid=1&q='+firm+'&filter=001&x=0&y=0'
 		wz['自然资源部'] = url_ziyuan
