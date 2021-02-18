@@ -1,4 +1,4 @@
-# 非玩windows下使用
+# not windows下使用
 #引入模块
 import pdfkit
 # from makepath import mkdir
@@ -44,15 +44,20 @@ def helpme(ver):
 
 		
 def screen_print(readme):
-	firm_list =[]
-	while True:
-		firm = input ('请输入公司全称：【若不再输入，请输入数字0】 ')
-		if firm == "0" :
-			break
-		elif firm == "help":
-			helpme(readme)
-		else:
-			firm_list += [firm]
+	# firm_list =[]
+	# while True:
+	# 	firm = input ('请输入公司全称：【若不再输入，请输入数字0】 ')
+	# 	if firm == "0" :
+	# 		break
+	# 	elif firm == "help":
+	# 		helpme(readme)
+	# 	else:
+	# 		firm_list += [firm]
+	with open('firm_list.json', 'r') as f:
+		dic = json.load(f)
+
+	firm_list = dic['firm']
+
 	if len(firm_list) > 0:
 		print ('你要查询的公司如下 \n', firm_list)
 	else:
@@ -131,21 +136,21 @@ def screen_print(readme):
 		num = 1
 		for k,v in wz.items():
 			try:
-				pdfkit.from_url(v, str(num)+'-'+firm+'-'+k+'.pdf', options = options)
+				pdfkit.from_url(v, '%d -'%num + firm+'-'+k+'.pdf'  , options = options)
 				num+= 1
 			except (ValueError, ArithmeticError):
 				num+= 1
 				continue
 
 
-		# try:
-		# 	xyzg_web_download(frim) #保存信用中国文件
-		# except:
-		# 	print('信用中国网站拒绝')
-		# os.chdir(current_path)
-		# str = 'FINISHED 【' + frim +'】的查询，并保存' 
-		# print(str.center(60, '*'))
-		# print ('保存目录为： '+ current_path+ '/' + frim )
+		try:
+			xyzg_web_download(firm) #保存信用中国文件
+		except:
+			print('信用中国网站拒绝')
+		os.chdir(current_path)
+		str = 'FINISHED 【' + firm +'】的查询，并保存' 
+		print(str.center(60, '*'))
+		print ('保存目录为： '+ current_path+ '/' + firm )
 		
 	print ('\n 任务已全部完成,保存地址见上面提示。\n 100秒后程序自动关闭')
 	time.sleep(100)
